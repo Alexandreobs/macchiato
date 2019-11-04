@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.macchiato.R;
-import com.example.macchiato.model.pojos.filmes.Result;
+import com.example.macchiato.model.pojos.tmdb.filmes.Result;
 import com.example.macchiato.view.interfaces.FilmeOnClick;
 import com.squareup.picasso.Picasso;
 

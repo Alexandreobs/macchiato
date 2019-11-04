@@ -1,5 +1,5 @@
 
-package com.example.macchiato.model.pojos.tvshows;
+package com.example.macchiato.model.pojos.tmdb.tvshows;
 
 import android.os.Parcel;
 import android.os.Parcelable;

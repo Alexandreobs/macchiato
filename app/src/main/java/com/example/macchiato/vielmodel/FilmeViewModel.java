@@ -8,7 +8,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.macchiato.model.pojos.filmes.Result;
+import com.example.macchiato.model.pojos.tmdb.filmes.Result;
 import com.example.macchiato.model.repository.FilmeRepository;
 
 import java.util.List;

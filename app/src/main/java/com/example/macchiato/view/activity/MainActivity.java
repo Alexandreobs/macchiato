@@ -3,21 +3,18 @@ package com.example.macchiato.view.activity;
 import android.os.Bundle;
 
 import com.example.macchiato.R;
-import com.example.macchiato.view.fragment.FavoritosFragment;
-import com.example.macchiato.view.fragment.FilmesFragment;
-import com.example.macchiato.view.fragment.LivrosFragment;
-import com.example.macchiato.view.fragment.NoticiasFragment;
-import com.example.macchiato.view.fragment.SeriesFragment;
+import com.example.macchiato.view.fragment.recyclerviews.FavoritosFragment;
+import com.example.macchiato.view.fragment.recyclerviews.FilmesFragment;
+import com.example.macchiato.view.fragment.recyclerviews.LivrosFragment;
+import com.example.macchiato.view.fragment.recyclerviews.NoticiasFragment;
+import com.example.macchiato.view.fragment.recyclerviews.SeriesFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        replaceFragment(new LivrosFragment());
+        replaceFragment(new FilmesFragment());
+        getSupportActionBar().hide();
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
 

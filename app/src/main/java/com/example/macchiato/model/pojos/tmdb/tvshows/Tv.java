@@ -1,5 +1,5 @@
 
-package com.example.macchiato.model.pojos.tvshows;
+package com.example.macchiato.model.pojos.tmdb.tvshows;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -1,9 +1,11 @@
-package com.example.macchiato.view.fragment;
+package com.example.macchiato.view.fragment.recyclerviews;
 
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,9 +16,10 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.example.macchiato.R;
-import com.example.macchiato.model.pojos.filmes.Result;
+import com.example.macchiato.model.pojos.tmdb.filmes.Result;
 import com.example.macchiato.vielmodel.FilmeViewModel;
 import com.example.macchiato.view.adapter.FilmeAdapter;
+import com.example.macchiato.view.fragment.detalhe.DetalheFilmeFragment;
 import com.example.macchiato.view.interfaces.FilmeOnClick;
 
 import java.util.ArrayList;
@@ -83,6 +86,18 @@ public class FilmesFragment extends Fragment implements FilmeOnClick {
 
     @Override
     public void onClick(Result result) {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(FILME_KEY, result);
 
+        Fragment detalheFragment = new DetalheFilmeFragment();
+        detalheFragment.setArguments(bundle);
+        replaceFragment(detalheFragment);
+    }
+
+    public void replaceFragment (Fragment fragment){
+        FragmentManager manager = getFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.container, fragment);
+        transaction.commit();
     }
 }

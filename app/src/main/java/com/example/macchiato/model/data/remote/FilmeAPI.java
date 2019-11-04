@@ -1,7 +1,7 @@
 package com.example.macchiato.model.data.remote;
 
-import com.example.macchiato.model.pojos.filmes.FilmeResult;
-import com.example.macchiato.model.pojos.tvshows.Tv;
+import com.example.macchiato.model.pojos.tmdb.filmes.FilmeResult;
+import com.example.macchiato.model.pojos.tmdb.tvshows.Tv;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;

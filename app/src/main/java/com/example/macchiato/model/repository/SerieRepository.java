@@ -1,6 +1,6 @@
 package com.example.macchiato.model.repository;
 
-import com.example.macchiato.model.pojos.tvshows.Tv;
+import com.example.macchiato.model.pojos.tmdb.tvshows.Tv;
 
 import io.reactivex.Observable;
 

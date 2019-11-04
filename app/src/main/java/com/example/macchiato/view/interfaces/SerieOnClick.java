@@ -1,6 +1,6 @@
 package com.example.macchiato.view.interfaces;
 
-import com.example.macchiato.model.pojos.tvshows.Result;
+import com.example.macchiato.model.pojos.tmdb.tvshows.Result;
 
 public interface SerieOnClick {
 
