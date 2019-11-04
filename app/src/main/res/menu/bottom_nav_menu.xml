@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_Filmes"
+        android:icon="@drawable/projetor_de_filme"
+        android:title="Filmes" />
+
+    <item
+        android:id="@+id/navigation_Serie"
+        android:icon="@drawable/tv_sorrindo"
+        android:title="Series" />
+
+    <item
+        android:id="@+id/navigation_Livros"
+        android:icon="@drawable/livro_aberto"
+        android:title="Livros" />
+
+    <item
+        android:id="@+id/navigation_Noticias"
+        android:icon="@drawable/icon_news"
+        android:title="Noticias" />
+
+    <item
+        android:id="@+id/navigation_Favoritos"
+        android:icon="@drawable/icon_favoritos"
+        android:title="Favoritos" />
+
+</menu>
