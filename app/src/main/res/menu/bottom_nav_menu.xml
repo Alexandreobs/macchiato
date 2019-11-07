@@ -9,7 +9,7 @@
     <item
         android:id="@+id/navigation_Serie"
         android:icon="@drawable/tv_sorrindo"
-        android:title="Series" />
+        android:title="Séries" />
 
     <item
         android:id="@+id/navigation_Livros"
@@ -18,8 +18,8 @@
 
     <item
         android:id="@+id/navigation_Noticias"
-        android:icon="@drawable/icon_news"
-        android:title="Noticias" />
+        android:icon="@drawable/icon_homem"
+        android:title="Heróis" />
 
     <item
         android:id="@+id/navigation_Favoritos"

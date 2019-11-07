@@ -1,4 +1,4 @@
-package com.example.macchiato.model.data.remote;
+package com.example.macchiato.model.data.remote.tmdb;
 
 import com.facebook.stetho.okhttp3.BuildConfig;
 import com.facebook.stetho.okhttp3.StethoInterceptor;

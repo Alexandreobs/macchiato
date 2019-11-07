@@ -2,52 +2,51 @@ package com.example.macchiato.vielmodel;
 
 import android.app.Application;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.macchiato.model.pojos.tmdb.tvshows.Result;
-import com.example.macchiato.model.repository.SerieRepository;
-
-import java.util.List;
+import com.example.macchiato.model.pojos.heroi.Result;
+import com.example.macchiato.model.repository.HerosRepository;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class SerieViewModel extends AndroidViewModel {
-
-    private MutableLiveData<List<Result>> listaSerie = new MutableLiveData<>();
+public class HeroisViewModel extends AndroidViewModel {
+    private MutableLiveData<Result> listaHeroi = new MutableLiveData<>();
     private MutableLiveData<Boolean> loading = new MutableLiveData<>();
     private CompositeDisposable disposable = new CompositeDisposable();
-    private SerieRepository repository = new SerieRepository();
+    private HerosRepository repository = new HerosRepository();
 
-    public SerieViewModel(@NonNull Application application) {
+
+    public HeroisViewModel(@NonNull Application application) {
         super(application);
     }
 
-    public LiveData<Boolean> getLoading() {
+    public MutableLiveData<Result> getListaHerois(){
+        return this.listaHeroi;
+    }
+
+    public LiveData<Boolean> getLoading(){
         return this.loading;
     }
 
-    public LiveData<List<Result>> getListaSerie() {
-        return this.listaSerie;
-    }
-
-    public void getAllSeries(String apiKey, int pagina){
+    public void getALLHerois (String ApiKey){
         disposable.add(
-                repository.getSeries(apiKey, pagina)
+                repository.getHeroi(ApiKey)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .doOnSubscribe(disposable -> loading.setValue(true))
                         .doAfterTerminate(()-> loading.setValue(false))
-                        .subscribe(SerieResult -> {
-                                    listaSerie.setValue(SerieResult.getResults());
+                        .subscribe(heroiResult -> {
+                                    listaHeroi.setValue(heroiResult.getResults());
                                 },
                                 throwable -> {
-                                    Log.i("LOG", "Erro" + throwable.getMessage());
+                                    Toast.makeText(getApplication(), "Deu merda na" + throwable.getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                         )
         );
@@ -60,3 +59,4 @@ public class SerieViewModel extends AndroidViewModel {
         disposable.clear();
     }
 }
+

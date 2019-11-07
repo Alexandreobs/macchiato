@@ -10,37 +10,36 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.macchiato.R;
-import com.example.macchiato.model.pojos.tmdb.tvshows.Result;
-import com.example.macchiato.view.interfaces.SerieOnClick;
+import com.example.macchiato.model.pojos.heroi.Result;
+import com.example.macchiato.view.interfaces.HeroisOnClick;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class SerieAdapter extends RecyclerView.Adapter<SerieAdapter.ViewHolder> {
-    private List<Result> resultv;
-    private SerieOnClick listener;
+public class HeroiAdapter extends RecyclerView.Adapter <HeroiAdapter.ViewHolder> {
+    private List<Result> resultList;
+    private HeroisOnClick listener;
 
-    public SerieAdapter(List<Result> resultv, SerieOnClick serieOnClick) {
-        this.resultv = resultv;
-        this.listener = serieOnClick;
+    public HeroiAdapter(List<Result> resultList, HeroisOnClick listener) {
+        this.resultList = resultList;
+        this.listener = listener;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_filmes_series, parent,false);
-        return new SerieAdapter.ViewHolder(view);
-
+        return new ViewHolder(view);
     }
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Result result = resultv.get(position);
+        final Result result = resultList.get(position);
         holder.onBind(result);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.serieOnClick(result);
+                listener.heroisOnClick(result);
             }
         });
 
@@ -48,36 +47,31 @@ public class SerieAdapter extends RecyclerView.Adapter<SerieAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return resultv.size();
-
+        return resultList.size();
     }
 
-    public void autalizaLista(List<Result> novaLista){
-        if (this.resultv.isEmpty()){
-            this.resultv = novaLista;
-        } else {
-            this.resultv.addAll(novaLista);
-        }
+    public void autalizaLista(List<Result> resultList){
+        this.resultList.clear();
+        this.resultList = resultList;
         notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView txtTitutloSerie;
-        private ImageView cartazSerie;
 
+        private TextView nomeHeroi;
+        private ImageView posterHeroi;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            txtTitutloSerie = itemView.findViewById(R.id.txtTitulo);
-            cartazSerie = itemView.findViewById(R.id.imgPoster);
-
+            nomeHeroi = itemView.findViewById(R.id.txtTitulo);
+            posterHeroi = itemView.findViewById(R.id.imgPoster);
         }
 
         public void onBind(Result result) {
-            Picasso.get().load("https://image.tmdb.org/t/p/w500/" + result.getPosterPath()).into(cartazSerie);
-            txtTitutloSerie.setText(result.getName());
+            Picasso.get().load("https://superheroapi.com/api/3158554990885448" + result.getId() + result.getImage()).into(posterHeroi);
 
+            nomeHeroi.setText(result.getName());
         }
     }
 }

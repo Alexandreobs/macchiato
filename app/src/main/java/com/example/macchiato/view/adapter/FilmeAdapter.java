@@ -51,9 +51,12 @@ public class FilmeAdapter extends RecyclerView.Adapter <FilmeAdapter.ViewHolder>
         return resultList.size();
     }
 
-    public void autalizaLista(List<Result> resultList){
-        this.resultList.clear();
-        this.resultList = resultList;
+    public void autalizaLista(List<Result> novaLista){
+        if (this.resultList.isEmpty()){
+            this.resultList = novaLista;
+        } else {
+            this.resultList.addAll(novaLista);
+        }
         notifyDataSetChanged();
     }
 

@@ -50,7 +50,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_data" />
+                app:layout_constraintTop_toBottomOf="@+id/text_dataSeries" />
 
             <TextView
                 android:id="@+id/text_dataSeries"
@@ -64,7 +64,7 @@
                 android:textColor="@color/colorDark"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_lingua" />
+                app:layout_constraintTop_toBottomOf="@+id/text_linguaSeries" />
 
             <TextView
                 android:id="@+id/text_linguaSeries"

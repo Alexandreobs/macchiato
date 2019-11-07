@@ -1,12 +1,13 @@
 package com.example.macchiato.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.macchiato.R;
 import com.example.macchiato.view.fragment.recyclerviews.FavoritosFragment;
 import com.example.macchiato.view.fragment.recyclerviews.FilmesFragment;
 import com.example.macchiato.view.fragment.recyclerviews.LivrosFragment;
-import com.example.macchiato.view.fragment.recyclerviews.NoticiasFragment;
+import com.example.macchiato.view.fragment.recyclerviews.HeroisFragment;
 import com.example.macchiato.view.fragment.recyclerviews.SeriesFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         } else if (id == R.id.navigation_Noticias) {
 
-            replaceFragment(new NoticiasFragment());
+            replaceFragment(new HeroisFragment());
 
         }  else if (id == R.id.navigation_Favoritos) {
 
@@ -62,6 +63,21 @@ public class MainActivity extends AppCompatActivity {
     });
 
 }
+
+    @Override
+    public void onBackPressed() {
+
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+
+        if (count == 0) {
+            super.onBackPressed();
+            //additional code
+        } else {
+            getSupportFragmentManager().popBackStack();
+        }
+
+    }
+
 
     private void replaceFragment(Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();

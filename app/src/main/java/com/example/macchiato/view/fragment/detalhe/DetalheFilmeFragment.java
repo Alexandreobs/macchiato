@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.macchiato.R;
 import com.example.macchiato.model.pojos.tmdb.filmes.Result;
@@ -38,6 +40,7 @@ public class DetalheFilmeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_detalhe_filme, container, false);
+
 
         initViews(view);
 

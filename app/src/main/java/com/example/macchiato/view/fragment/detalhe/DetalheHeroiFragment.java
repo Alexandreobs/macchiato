@@ -1,4 +1,4 @@
-package com.example.macchiato.view.fragment.recyclerviews;
+package com.example.macchiato.view.fragment.detalhe;
 
 
 import android.os.Bundle;
@@ -13,10 +13,10 @@ import com.example.macchiato.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NoticiasFragment extends Fragment {
+public class DetalheHeroiFragment extends Fragment {
 
 
-    public NoticiasFragment() {
+    public DetalheHeroiFragment() {
         // Required empty public constructor
     }
 
@@ -25,7 +25,7 @@ public class NoticiasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_noticias, container, false);
+        return inflater.inflate(R.layout.fragment_detalhe_heroi, container, false);
     }
 
 }
